@@ -43,12 +43,9 @@ class OAuthToken:
 
 class FatSecretApi:
 
-    def __init__(self, client_id, client_secret, token_url, api_url, proxy, proxy_user, proxy_password):
+    def __init__(self, client_id, client_secret, token_url, api_url):
         self.API_URL = api_url
         self.access_token = OAuthToken(client_id, client_secret, token_url)
-        self.PROXY = proxy
-        self.PROXY_USER = proxy_user
-        self.PROXY_PASSWORD = proxy_password
 
     async def search(self, search_expression):
         headers = {
@@ -64,14 +61,11 @@ class FatSecretApi:
         api_error = []
         try:
             async with aiohttp.ClientSession() as session:
-                proxy_auth = aiohttp.BasicAuth(self.PROXY_USER, self.PROXY_PASSWORD)
                 try:
                     async with session.post(
                         self.API_URL,
                         headers=headers,
-                        params=data,
-                        proxy=self.PROXY,
-                        proxy_auth=proxy_auth
+                        params=data
                     ) as resp:
                         if resp.status != 200:
                             api_error.append(f"HTTP error: {resp.status}")

@@ -20,7 +20,7 @@ async def main():
     dp.shutdown.register(lambda : conn.close())
     await create_users_table(conn), await create_history_table(conn)
 
-    dp['fatsecret_api'] = FatSecretApi(client_id, client_secret, token_url, api_url, proxy, proxy_user, proxy_password)
+    dp['fatsecret_api'] = FatSecretApi(client_id, client_secret, token_url, api_url)
     dp['ninjas_api'] = NinjasApi(ninjas_url, ninjas_api)
 
     dp.message.outer_middleware(LoggingMiddleware())

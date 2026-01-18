@@ -16,10 +16,6 @@ client_secret = os.getenv('fatsectretapi')
 
 admin_id = int(os.getenv("adminid"))
 
-proxy = os.getenv('proxy')
-proxy_user = os.getenv('proxyuser')
-proxy_password = os.getenv('proxypassword')
-
 ninjas_url = os.getenv('ninjasurl')
 ninjas_api = os.getenv('ninjasapi')
 
