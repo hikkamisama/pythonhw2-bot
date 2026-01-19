@@ -25,3 +25,8 @@
 
 <img width="2342" height="518" alt="image" src="https://github.com/user-attachments/assets/8bea1e58-f2ac-4067-8563-35b10d02e1cb" />
 
+## Функционал на бонусные баллы:
+
+- Подключение fatsecret api для поиска данных по еде
+- Подключение ninjas api для поиска данных по активностям
+- Реализация базы данных для бота
